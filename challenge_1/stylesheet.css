@@ -1,0 +1,14 @@
+table,tr,th {
+  border: 1px solid black;
+}
+
+table{
+  width: 300px;
+  table-layout: fixed;
+}
+
+tr, td{
+  height: 100px;
+  overflow: hidden;
+}
+
