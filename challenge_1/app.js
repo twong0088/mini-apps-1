@@ -14,6 +14,9 @@ var board = {
 }
 
 var winner = null;
+var Xscore = 0;
+var Oscore = 0;
+
 
 function clicked(event) {
 var index = event.target.getAttribute('id');
@@ -38,12 +41,20 @@ var index = event.target.getAttribute('id');
 
     if (winner!== null) {
       if (winner) {
+        Xscore++;
+        document.getElementById("xScore").innerHTML = Xscore;
         alert('game over X won');
+        turn = !turn;
+        resetBoard();
       } else {
+        Oscore++;
+        document.getElementById("oScore").innerHTML = Oscore;
         alert('game over O won');
+        turn = !turn;
+        resetBoard();
       }
     }
-    if (counter === 9 && winner === null) {
+    if (counter === 8 && winner === null) {
       alert('game over: game tied');
     }
 
@@ -54,8 +65,8 @@ var index = event.target.getAttribute('id');
     } else {
       document.getElementById("upNext").innerHTML = `Up Next: O`;
     }
+    counter++;
   }
-  counter++;
 }
 
 function resetBoard() {
@@ -71,7 +82,7 @@ function resetBoard() {
     '22': null
   }
   counter = 0;
-  document.getElementById("table").innerHTML =
+  document.getElementById("gameboard").innerHTML =
 `<tr>
 <th id='00' onClick='clicked(event)'></th>
 <th id='01' onClick='clicked(event)'></th>

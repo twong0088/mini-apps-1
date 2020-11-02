@@ -9,24 +9,37 @@
     <h1>Tic-Tac-Toe Game</h1>
     <p id='upNext'>Up Next: X</p>
     <button onClick='resetBoard()'>reset</button>
-    <table id=table>
+    <table id=gameboard onClick='clicked(event)'>
       <tr>
-        <th id='00' onClick='clicked(event)'></th>
-        <th id='01' onClick='clicked(event)'></th>
-        <th id='02' onClick='clicked(event)'></th>
+        <th id='00'></th>
+        <th id='01'></th>
+        <th id='02'></th>
       </tr>
       <tr>
-        <th id='10' onClick='clicked(event)'></th>
-        <th id='11' onClick='clicked(event)'></th>
-        <th id='12' onClick='clicked(event)'></th>
+        <th id='10'></th>
+        <th id='11'></th>
+        <th id='12'></th>
       </tr>
       <tr>
-        <th id='20' onClick='clicked(event)'></th>
-        <th id='21' onClick='clicked(event)'></th>
-        <th id='22' onClick='clicked(event)'></th>
+        <th id='20'></th>
+        <th id='21'></th>
+        <th id='22'></th>
       </tr>
-
     </table>
+
+    <table id=scoreboard>
+      <H3><BR>Scoreboard</H3>
+
+      <tr class=scoreboard>
+        <th>X</th>
+        <th>O</th>
+      </tr>
+      <tr class=scoreboard>
+        <th id=xScore>0</th>
+        <th id=oScore>0</th>
+      </tr>
+    </table>
+
   </body>
 </html>
 

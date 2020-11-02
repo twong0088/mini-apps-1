@@ -12,3 +12,7 @@ tr, td{
   overflow: hidden;
 }
 
+.scoreboard{
+  border: none;
+  height: 40px;
+}
