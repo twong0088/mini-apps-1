@@ -1,6 +1,6 @@
 // toggle variable. true = X false = O
 var turn = true;
-var counter = 0;
+
 var board = {
   '00': null,
   '01': null,
@@ -43,19 +43,21 @@ var index = event.target.getAttribute('id');
       if (winner) {
         Xscore++;
         document.getElementById("xScore").innerHTML = Xscore;
-        alert('game over X won');
+        alert('game over: X won');
         turn = !turn;
         resetBoard();
       } else {
         Oscore++;
         document.getElementById("oScore").innerHTML = Oscore;
-        alert('game over O won');
+        alert('game over: O won');
         turn = !turn;
         resetBoard();
       }
     }
-    if (counter === 8 && winner === null) {
-      alert('game over: game tied');
+    if (noNull()  && winner === null) {
+      alert('game over: game draw');
+
+      resetBoard();
     }
 
     turn = !turn;
@@ -65,7 +67,7 @@ var index = event.target.getAttribute('id');
     } else {
       document.getElementById("upNext").innerHTML = `Up Next: O`;
     }
-    counter++;
+
   }
 }
 
@@ -81,24 +83,30 @@ function resetBoard() {
     '21': null,
     '22': null
   }
-  counter = 0;
+
   document.getElementById("gameboard").innerHTML =
-`<tr>
-<th id='00' onClick='clicked(event)'></th>
-<th id='01' onClick='clicked(event)'></th>
-<th id='02' onClick='clicked(event)'></th>
+` <tr>
+<th id='00'></th>
+<th id='01'></th>
+<th id='02'></th>
 </tr>
 <tr>
-<th id='10' onClick='clicked(event)'></th>
-<th id='11' onClick='clicked(event)'></th>
-<th id='12' onClick='clicked(event)'></th>
+<th id='10'></th>
+<th id='11'></th>
+<th id='12'></th>
 </tr>
 <tr>
-<th id='20' onClick='clicked(event)'></th>
-<th id='21' onClick='clicked(event)'></th>
-<th id='22' onClick='clicked(event)'></th>
+<th id='20'></th>
+<th id='21'></th>
+<th id='22'></th>
 </tr>`;
-
-
 }
 
+function noNull(){
+  for(key in board) {
+    if (board[key] === null) {
+      return false;
+    }
+  }
+  return true;
+}
