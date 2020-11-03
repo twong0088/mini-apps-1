@@ -6,39 +6,51 @@
   </head>
   <body>
     <script src="app.js"></script>
-    <h1>Tic-Tac-Toe Game</h1>
-    <p id='upNext'>Up Next: X</p>
-    <button onClick='resetBoard()'>reset</button>
-    <table id=gameboard onClick='clicked(event)'>
-      <tr>
-        <th id='00'></th>
-        <th id='01'></th>
-        <th id='02'></th>
-      </tr>
-      <tr>
-        <th id='10'></th>
-        <th id='11'></th>
-        <th id='12'></th>
-      </tr>
-      <tr>
-        <th id='20'></th>
-        <th id='21'></th>
-        <th id='22'></th>
-      </tr>
-    </table>
+    <div class="sidenav">
+      <h1>Tic-Tac-Toe Game</h1>
 
-    <table id=scoreboard>
-      <H3><BR>Scoreboard</H3>
+      <table id=scoreboard>
+        <H3><BR>Scoreboard</H3>
 
-      <tr class=scoreboard>
-        <th>X</th>
-        <th>O</th>
-      </tr>
-      <tr class=scoreboard>
-        <th id=xScore>0</th>
-        <th id=oScore>0</th>
-      </tr>
-    </table>
+        <tr class=scoreboard>
+          <th>X</th>
+          <th>O</th>
+        </tr>
+        <tr class=scoreboard>
+          <th id=xScore>0</th>
+          <th id=oScore>0</th>
+        </tr>
+      </table>
+      <button onClick='resetBoard()'>Reset Board</button>
+      <br><br>
+      <div id='slider'>
+        <label id='insaneModeLabel'>Insane mode: </label>
+        <label class="switch">
+          <input type="checkbox" onClick='activateInsaneMode(event)'>
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+    <p id='upNext'>Current Player: X</p>
+<div id=main>
+  <table id=gameboard onClick='clicked(event)'>
+    <tr>
+      <th class='cell' id='00'></th>
+      <th class='cell' id='01'></th>
+      <th class='cell' id='02'></th>
+    </tr>
+    <tr>
+      <th class='cell' id='10'></th>
+      <th class='cell' id='11'></th>
+      <th class='cell' id='12'></th>
+    </tr>
+    <tr>
+      <th class='cell' id='20'></th>
+      <th class='cell' id='21'></th>
+      <th class='cell' id='22'></th>
+    </tr>
+  </table>
+</div>
 
   </body>
 </html>

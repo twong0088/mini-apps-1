@@ -1,6 +1,6 @@
 // toggle variable. true = X false = O
 var turn = true;
-
+var insaneMode = false;
 var board = {
   '00': null,
   '01': null,
@@ -23,8 +23,10 @@ var index = event.target.getAttribute('id');
   if (event.target.innerHTML.length === 0) {
     if (turn) {
       event.target.append('X');
+
     } else {
       event.target.append('O');
+
     }
     board[index] = turn;
 
@@ -63,9 +65,9 @@ var index = event.target.getAttribute('id');
     turn = !turn;
 
     if(turn) {
-      document.getElementById("upNext").innerHTML = `Up Next: X`;
+      document.getElementById("upNext").innerHTML = `Current Player: X`;
     } else {
-      document.getElementById("upNext").innerHTML = `Up Next: O`;
+      document.getElementById("upNext").innerHTML = `Current Player: O`;
     }
 
   }
@@ -109,4 +111,17 @@ function noNull(){
     }
   }
   return true;
+}
+
+function activateInsaneMode(event){
+  console.log('insane mode activated', event.target);
+  insaneMode = !insaneMode;
+  var table = document.getElementById('gameboard');
+
+  if (insaneMode){
+    table.classList.add('insaneMode');
+  } else {
+    table.classList.remove('insaneMode');
+  }
+
 }
