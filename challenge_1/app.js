@@ -87,20 +87,20 @@ function resetBoard() {
   }
 
   document.getElementById("gameboard").innerHTML =
-` <tr>
-<th id='00'></th>
-<th id='01'></th>
-<th id='02'></th>
+`<tr>
+<th class='cell' id='00'></th>
+<th class='cell' id='01'></th>
+<th class='cell' id='02'></th>
 </tr>
 <tr>
-<th id='10'></th>
-<th id='11'></th>
-<th id='12'></th>
+<th class='cell' id='10'></th>
+<th class='cell' id='11'></th>
+<th class='cell' id='12'></th>
 </tr>
 <tr>
-<th id='20'></th>
-<th id='21'></th>
-<th id='22'></th>
+<th class='cell' id='20'></th>
+<th class='cell' id='21'></th>
+<th class='cell' id='22'></th>
 </tr>`;
 }
 
@@ -114,7 +114,7 @@ function noNull(){
 }
 
 function activateInsaneMode(event){
-  console.log('insane mode activated', event.target);
+
   insaneMode = !insaneMode;
   var table = document.getElementById('gameboard');
 

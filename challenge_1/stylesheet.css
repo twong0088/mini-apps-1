@@ -75,7 +75,7 @@ button{
 }
 
 .insaneMode{
-  -webkit-animation: spin 1s infinite linear;
+  -webkit-animation: spin 1.2s infinite linear;
 }
 
 @-webkit-keyframes spin {
