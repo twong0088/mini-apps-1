@@ -3,15 +3,36 @@ import React from 'react';
 class FormThree extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      CC: '',
+      month: undefined,
+      year: undefined,
+      cvv: ''
+    }
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSelection = this.handleSelection.bind(this);
   }
 
+  handleInput(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+    console.log(this.state)
+  }
+  handleSelection(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+    console.log(this.state)
+  }
   render() {
     return(
       <form onSubmit={this.props.next}>
         <label htmlFor="CC">Credit Card Number: </label> <br />
-        <input type="text" id="CC" name="CC"/> <br />
+        <input type="text" id="CC" name="CC" value={this.state.CC} onChange={this.handleInput}/> <br />
         <label htmlFor="expiration">Expiration Date: </label> <br />
-        <input list='expiration' />
+        <input list='expiration' name='month' onSelect={this.handleSelection}/>
         <datalist id='expiration'>
           <option value='Jan' />
           <option value='Feb' />
@@ -26,7 +47,7 @@ class FormThree extends React.Component {
           <option value='Nov' />
           <option value='Dec' />
         </datalist>
-        <input list='expirationYear' />
+        <input list='expirationYear' name='year' onSelect={this.handleSelection}/>
         <datalist id='expirationYear'>
           <option value='2020' />
           <option value='2021' />
@@ -42,7 +63,7 @@ class FormThree extends React.Component {
         </datalist>
 
         <br /> <label htmlFor="cvv">CVV: </label> <br />
-        <input type="password" id="cvv" name="cvv" /> <br />
+        <input type="password" id="cvv" name="cvv" value={this.state.ccv} onChange={this.handleInput}/> <br />
         <input type='submit' value='next>' />
       </form>
     )
