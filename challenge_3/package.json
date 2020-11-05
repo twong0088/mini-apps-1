@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "babel": "babel . --watch --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline",
-    "start": "nodemon server/server.js",
+    "start": "nodemon backend/server.js",
     "react-dev": "webpack -d --watch"
   },
   "dependencies": {

@@ -36,7 +36,7 @@ class App extends React.Component {
     console.log(this.state);
     axios.post('/newpurchase', this.state)
     .then((response) => {
-      console.log(response);
+      console.log('success');
       alert('Order Complete. Returning to Homepage.');
     })
     .catch((err)=> {
