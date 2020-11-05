@@ -34,7 +34,7 @@ class App extends React.Component {
 }
   sendToServer(){
     console.log(this.state);
-    axios.post('/newPurchase', this.state)
+    axios.post('/newpurchase', this.state)
     .then((response) => {
       console.log(response);
       alert('Order Complete. Returning to Homepage.');
