@@ -1,0 +1,17 @@
+table, th, td {
+  border: 1px solid black;
+}
+h1{
+  margin-left: 20px;
+}
+
+table{
+  margin-left: 20px;
+  width: 600px;
+  table-layout: fixed;
+}
+
+tr, td{
+  height: 100px;
+  overflow: hidden;
+}
