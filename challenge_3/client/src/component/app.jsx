@@ -8,38 +8,31 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      page: 1,
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      address: '',
-      address2: '',
-      city: '',
-      state: '',
-      phone: '',
-      CC: '',
-      month: undefined,
-      year: undefined,
-      cvv: ''
+      page: 1
     }
 
     this.pressNext = this.pressNext.bind(this);
+    this.sendToServer = this.sendToServer.bind(this);
   }
 
   pressNext(obj) {
-    this.setState(obj)
-    console.log(this.state);
-    if (this.state.page === 1 || this.state.page === 2) {
-      this.setState({
-        page: this.state.page + 1
-      })
-    } else {
-      this.setState({
-        page: 1
+    this.setState(obj, ()=>{
+      if (this.state.page === 1 || this.state.page === 2) {
+        this.setState({
+          page: this.state.page + 1
+        })
+      } else {
+        this.sendToServer();
+        this.setState({
+          page: 1
+        })
+      }
     })
-  }
+
 }
+  sendToServer(){
+    console.log(this.state);
+  }
 
   render() {
     return(
