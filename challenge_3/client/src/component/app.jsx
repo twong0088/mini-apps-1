@@ -8,14 +8,28 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      page: 1
+      page: 1,
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      address: '',
+      address2: '',
+      city: '',
+      state: '',
+      phone: '',
+      CC: '',
+      month: undefined,
+      year: undefined,
+      cvv: ''
     }
 
     this.pressNext = this.pressNext.bind(this);
   }
 
-  pressNext(event) {
-    event.preventDefault();
+  pressNext(obj) {
+    this.setState(obj)
+    console.log(this.state);
     if (this.state.page === 1 || this.state.page === 2) {
       this.setState({
         page: this.state.page + 1
@@ -25,7 +39,6 @@ class App extends React.Component {
         page: 1
     })
   }
-  console.log(this.state.page);
 }
 
   render() {

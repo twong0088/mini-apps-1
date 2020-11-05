@@ -12,14 +12,21 @@ class FormTwo extends React.Component {
       phone: ''
     }
     this.handleInput = this.handleInput.bind(this);
+    this.handleSubmission = this.handleSubmission.bind(this);
   }
 
   handleInput(event) {
     this.setState({[event.target.name]: event.target.value})
   }
+
+  handleSubmission(event){
+    event.preventDefault();
+    this.props.next(this.state);
+  }
+
   render() {
     return(
-      <form onSubmit={this.props.next}>
+      <form onSubmit={this.handleSubmission}>
         <label htmlFor="address">Address: </label> <br />
         <input type="text" id="address" name="address" value={this.state.address} onChange={this.handleInput}/> <br />
         <label htmlFor="address2">Address (optional): </label> <br />

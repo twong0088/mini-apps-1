@@ -12,23 +12,29 @@ class FormThree extends React.Component {
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
+    this.handleSubmission = this.handleSubmission.bind(this);
   }
 
   handleInput(event) {
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log(this.state)
+
   }
   handleSelection(event) {
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log(this.state)
+
   }
+  handleSubmission(event){
+    event.preventDefault();
+    this.props.next(this.state);
+  }
+
   render() {
     return(
-      <form onSubmit={this.props.next}>
+      <form onSubmit={this.handleSubmission}>
         <label htmlFor="CC">Credit Card Number: </label> <br />
         <input type="text" id="CC" name="CC" value={this.state.CC} onChange={this.handleInput}/> <br />
         <label htmlFor="expiration">Expiration Date: </label> <br />

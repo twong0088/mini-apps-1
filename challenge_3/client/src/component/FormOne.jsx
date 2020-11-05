@@ -12,15 +12,21 @@ class FormOne extends React.Component {
       password2: ''
     }
     this.handleInput = this.handleInput.bind(this);
+    this.handleSubmission = this.handleSubmission.bind(this);
   }
 
   handleInput(event){
     this.setState({[event.target.name]: event.target.value})
   }
 
+  handleSubmission(event){
+    event.preventDefault();
+    this.props.next(this.state);
+  }
+
   render() {
     return(
-      <form onSubmit={this.props.next}>
+      <form onSubmit={this.handleSubmission}>
         <label htmlFor="firstName">First Name: </label> <br />
         <input type="text" id="firstName" name="firstName" value={this.state.firstName} onChange={this.handleInput}/> <br />
         <label htmlFor="lastName">Last Name: </label> <br />
