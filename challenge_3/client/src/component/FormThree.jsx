@@ -70,7 +70,7 @@ class FormThree extends React.Component {
 
         <br /> <label htmlFor="cvv">CVV: </label> <br />
         <input type="password" id="cvv" name="cvv" value={this.state.ccv} onChange={this.handleInput}/> <br />
-        <input type='submit' value='next>' />
+        <input type='submit' value='Complete Order>' />
       </form>
     )
   }

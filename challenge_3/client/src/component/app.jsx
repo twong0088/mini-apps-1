@@ -2,6 +2,8 @@ import React from 'react';
 import FormOne from './FormOne.jsx';
 import FormTwo from './FormTwo.jsx';
 import FormThree from './FormThree.jsx';
+const axios = require('axios');
+
 
 class App extends React.Component {
   constructor(props) {
@@ -32,6 +34,14 @@ class App extends React.Component {
 }
   sendToServer(){
     console.log(this.state);
+    axios.post('/newPurchase', this.state)
+    .then((response) => {
+      console.log(response);
+      alert('Order Complete. Returning to Homepage.');
+    })
+    .catch((err)=> {
+      console.log(err);
+    })
   }
 
   render() {
